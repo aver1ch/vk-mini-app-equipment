@@ -18,7 +18,6 @@ export const DEFAULT_VIEW_PANELS = {
   ADMIN_USERS: 'admin_users',
   ADMIN_APPLICATIONS: 'admin_applications',
   ADMIN_APPLICATIONS_TABLE1: 'admin_applications_table1',
-  ADMIN_APPLICATIONS_TABLE2: 'admin_applications_table2',
   PERSIK: 'persik',
 };
 

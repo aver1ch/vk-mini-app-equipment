@@ -128,6 +128,7 @@ export const AdminEquipments = ({ id, fetchedUser }) => {
     loadEquipments();
   }, [equipments]);
 
+
   // useEffect(() => {
   //   if (equipments) {
   //     setLoading(false);

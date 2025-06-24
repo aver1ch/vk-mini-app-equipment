@@ -72,10 +72,6 @@ export default function AdminApplicationTable1() {
         }
     };
 
-    const handleEditClick = (id) => () => {
-        setRowModesModel((prev) => ({ ...prev, [id]: { mode: GridRowModes.Edit } }));
-    };
-
     const handleSaveClick = (id) => () => {
         setRowModesModel((prev) => ({ ...prev, [id]: { mode: GridRowModes.View } }));
     };
@@ -219,6 +215,10 @@ export default function AdminApplicationTable1() {
         return updatedRow;
     };
 
+    const handleEditClick = (id) => () => {
+        setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+    };
+
     const handleRowModesModelChange = (newModel) => {
         setRowModesModel(newModel);
     };
@@ -247,23 +247,29 @@ export default function AdminApplicationTable1() {
             width: 200,
             getActions: ({ id }) => {
                 const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-
-                return isInEditMode
-                    ? [
+                if (isInEditMode) {
+               
+                    return [
                         <GridActionsCellItem
                             icon={<SaveIcon />}
                             label="Save"
+                            material={{
+                                sx: {
+                                    color: 'primary.main',
+                                },
+                            }}
                             onClick={handleSaveClick(id)}
-                            sx={{ color: 'primary.main' }}
                         />,
                         <GridActionsCellItem
                             icon={<CancelIcon />}
                             label="Cancel"
+                            className="textPrimary"
                             onClick={handleCancelClick(id)}
                             color="inherit"
                         />,
-                    ]
-                    : [
+                    ];
+                }
+                return [
                         <GridActionsCellItem
                             icon={<EditIcon />}
                             label="Edit"
@@ -276,12 +282,6 @@ export default function AdminApplicationTable1() {
                             onClick={handleDeleteClick(id)}
                             color="inherit"
                         />,
-                        //<GridActionsCellItem
-                        //    icon={<VisibilityIcon />}
-                        //    label="View Equipment"
-                        //    onClick={handleViewEquipmentClick(id)}
-                        //    color="inherit"
-                        ///>,
                         <GridActionsCellItem
                             icon={<PrintIcon />}
                             label="Print"

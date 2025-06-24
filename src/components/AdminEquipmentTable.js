@@ -174,11 +174,6 @@ export default function AdminEquipmentTable({ applicationId, onDataChange }) {
                     ]
                     : [
                         <GridActionsCellItem
-                            icon={<EditIcon />}
-                            label="Edit"
-                            onClick={handleEditClick(id)}
-                        />,
-                        <GridActionsCellItem
                             icon={<DeleteIcon />}
                             label="Delete"
                             onClick={handleDeleteClick(id)}

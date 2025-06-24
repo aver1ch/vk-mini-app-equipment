@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Box, Modal, Typography } from '@mui/material';
 import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid';
 import { ruRU } from '@mui/x-data-grid/locales';
+import SaveIcon from '@mui/icons-material/Save';
+import CancelIcon from '@mui/icons-material/Cancel'
 import PrintIcon from '@mui/icons-material/Print';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useReactToPrint } from 'react-to-print';
