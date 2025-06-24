@@ -82,9 +82,6 @@ function getRandomInt(min, max) {
 }
 
 export const AdminUsers = ({ id, fetchedUser }) => {
-  // return (
-  //     <label>testsdf</label>
-  // );
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const dataContext = useContext(createContext(null));
@@ -115,36 +112,13 @@ export const AdminUsers = ({ id, fetchedUser }) => {
     }
   };
 
-
   useEffect(() => {
     if (equipments) {
       setLoading(false);
       return;
     }
-    // if (!profile || orderInProgress === undefined) {
-    //   return;
-    // }
     loadEquipments();
   }, [equipments]);
-
-  // useEffect(() => {
-  //   if (equipments) {
-  //     setLoading(false);
-  //     return;
-  //   }
-  //   if (calendarRef.current) {
-  //     // Access the DOM element using myElementRef.current
-  //     const element = calendarRef.current;
-  //     console.log(element); // Output: <div ref=.../>
-  //     // You can now use standard DOM methods like querySelector on this element
-  //     const childElement = element.querySelector('[aria-label="June 10, 2025"]');
-  //     if (childElement) {
-  //       console.log(childElement); // Output: <div class="my-child">
-  //       childElement.css.background = 'red !important';
-  //       childElement.style.backgroundColor = 'red !important';
-  //     }
-  //   }
-  // }, [equipments]);
 
   return (
     <Panel id={id}>

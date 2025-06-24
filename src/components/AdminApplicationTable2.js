@@ -36,7 +36,24 @@ const initialRows = [
 
 function EditToolbar({ setRows, setRowModesModel }) {
     const handleClick = () => {
-        
+        const id = Date.now(); // простой способ генерировать уникальные id
+        setRows((oldRows) => [
+            ...oldRows,
+            {
+                id,
+                tnaim: '',
+                vnaim: '',
+                kolich: 1,
+                zenaz: 0,
+                zenapr: 0,
+                sost: '',
+                isNew: true,
+            },
+        ]);
+        setRowModesModel((oldModel) => ({
+            ...oldModel,
+            [id]: { mode: GridRowModes.Edit },
+        }));
     };
 
     return (
@@ -49,6 +66,8 @@ function EditToolbar({ setRows, setRowModesModel }) {
         </GridToolbarContainer>
     );
 }
+
+
 export default function AdminApplicationTable2() {
     const [rows, setRows] = React.useState(initialRows);
     const [rowModesModel, setRowModesModel] = React.useState({});
